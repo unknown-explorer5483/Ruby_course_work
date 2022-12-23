@@ -82,6 +82,7 @@ ru:
   dates: "Дата"
   delete_user: "Удалить пользователя"
   language: "Язык"
+  room_taken: "Эта комната уже занята"
   errors:
     format: "%{message}"
   activerecord:

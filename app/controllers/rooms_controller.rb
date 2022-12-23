@@ -79,7 +79,8 @@ class RoomsController < ApplicationController
 
   def book_room(room)
     user_booking = Booking.create(room:, user: @current_user, date: book_params[:date])
-    if user_booking.save
+    if user_booking.valid?
+      user_booking.save
       @current_user.update(money: (@current_user.money - room.cost_per_night))
       @current_user.save
       redirect_to user_path(@current_user)

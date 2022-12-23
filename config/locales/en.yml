@@ -83,6 +83,7 @@ en:
   delete_user: "Delete user"
   language: "language"
   token_expired: "Your token has expired. Please try again."
+  room_taken: "has already been taken"
   password_reset:
   errors:
-    format: "%{message}"
+    format: "%{attribute} %{message}"
