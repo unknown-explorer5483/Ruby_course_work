@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-    
+
     describe 'test hotel' do
         let(:new_hotel) do
             prew_hotel = Hotel.find_by(name: "testhotel")
@@ -18,7 +18,6 @@ RSpec.describe Room, type: :model do
                 description: "some description for hotel",
                 image: image
             )
-            new_hotel.save!
             new_hotel
         end
 

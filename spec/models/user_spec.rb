@@ -10,7 +10,6 @@ RSpec.describe User, type: :model do
             password: "testuser",
             email: "email@gmail.com"
         )
-        new_user.save!
         new_user_search = User.find_by(username: "testusername")
         expect(new_user_search).to eq(new_user)
     end

@@ -18,7 +18,6 @@ RSpec.describe Booking, type: :model do
                 description: "some description for hotel",
                 image: image
             )
-            new_hotel.save!
             new_hotel
           end
 
@@ -39,7 +38,6 @@ RSpec.describe Booking, type: :model do
                 description: "some description for room",
                 images: [image_room]
             )
-            new_room.save!
             new_room
         end
 
@@ -52,7 +50,6 @@ RSpec.describe Booking, type: :model do
                 password: "testuser",
                 email: "email@gmail.com"
             )
-            new_user.save!
             new_user
         end
 
@@ -65,14 +62,13 @@ RSpec.describe Booking, type: :model do
                 password: "testuser2",
                 email: "email2@gmail.com"
             )
-            new_user2.save!
             new_user2
         end
 
         context 'when valid data' do
             it "should write to db correct record" do
 
-                prew_booking = Booking.find_by(user: new_user)
+                prew_booking = Booking.find_by(user: new_user, room: new_room)
                 prew_booking&.destroy
                 
                 new_booking = Booking.create(
@@ -80,7 +76,6 @@ RSpec.describe Booking, type: :model do
                     user: new_user,
                     date: Time.now + 1.day,
                 )
-                new_booking.save!
 
                 new_booking_search = Booking.find_by(user: new_user)
                 expect(new_booking_search).to eq(new_booking)
@@ -92,8 +87,8 @@ RSpec.describe Booking, type: :model do
             it "should not write to db incorrect record" do
 
                 prew_booking = Booking.find_by(user: new_user)
+
                 prew_booking&.destroy
-                
                 new_booking = Booking.create(
                     date: Time.now - 1.day,
                 )
@@ -104,26 +99,24 @@ RSpec.describe Booking, type: :model do
             end
             it "should not write dublicate bookings" do
 
-                prew_booking = Booking.find_by(user: new_user)
+                prew_booking = Booking.find_by(user: new_user, room: new_room)
                 prew_booking&.destroy
 
-                prew_booking2 = Booking.find_by(user: new_user2)
+                prew_booking2 = Booking.find_by(user: new_user2, room: new_room)
                 prew_booking2&.destroy
-                
                 new_booking = Booking.create(
                     room: new_room, 
                     user: new_user,
                     date: '01.01.2023',
                 )
-                new_booking.save!
-
                 new_booking2 = Booking.create(
                     room: new_room, 
                     user: new_user2,
                     date: '01.01.2023',
                 )
-                expect(new_booking2.valid?).to eq(false)
 
+                expect(new_booking2.valid?).to eq(false)
+                expect(Booking.find_by(user: new_user, room: new_room)).to eq(new_booking)
             end
         end
 

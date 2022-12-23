@@ -19,7 +19,6 @@ RSpec.describe Hotel, type: :model do
                     description: "some description for hotel",
                     image: image
                 )
-                new_hotel.save!
                 new_hotel_search = Hotel.find_by(name: "testhotel")
                 expect(new_hotel_search).to eq(new_hotel)
             end
