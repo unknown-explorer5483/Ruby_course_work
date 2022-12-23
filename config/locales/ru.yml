@@ -1,0 +1,143 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ru:
+  location: "Адрес"
+  name: "Имя"
+  description: "Описание"
+  image: "Изображение"
+  submit: "Отправить"
+  hotel_edit: "Редактирование отеля"
+  show_this_hotel: "Показать этот отель"
+  back_to_hotels: "Вернуться у списку отелей"
+  hotels: "Отели"
+  check_rooms: "Посмотреть комнаты"
+  new_hotel: "Добавить отель"
+  new_room: "Добавить комнату"
+  new_hotel_title: "Новый отель"
+  edit_hotel: "Отредактировать отель"
+  destroy_hotel: "Удалить отель"
+  add_room: "Добавить комнату"
+  rooms: "Комнаты"
+  cost_per_night: "Цена за сутки"
+  check_room: "Посмотреть комнату"
+  current_balance: "Текущий баланс"
+  current_user: "Пользователь"
+  log_out: "Выйти"
+  log_in: "Войти"
+  register: "Зарегестрироваться"
+  hotel_id: "Id отеля"
+  images: "Изображения"
+  room_edit: "Редактирование комнаты"
+  show_this_room: "Показать эту комнату"
+  back_to_rooms: "К списку комнат"
+  new_room: "Новая комната"
+  book_date: "Дата бронирования"
+  book: "Забронировать"
+  username: "Имя пользователя"
+  password: "Пароль"
+  new_user: "Новый пользователь"
+  email: "Почта"
+  wallet: "Баланс"
+  add_to_wallet: "Пополнить на баланс"
+  room: "Комната"
+  unbook: "Удалить бронь"
+  show_user: "Показать пользователя"
+  back_to_users: "Вернуться к списку пользователей"
+  edit_user: "Редактирование пользователя"
+  users: "Пользователи"
+  edit_this_hotel: "Отредактировать этот отель"
+  destroy_this_hotel: "Удалить этот отель"
+  not_enough_money: "не достаточно денег"
+  edit_this_room: "Отредактировать эту комнату"
+  destroy_this_room: "Удалить эту комнату"
+  dates: "Дата"
+  delete_user: "Удалить пользователя"
+  language: "Язык"
+  errors:
+    format: "%{message}"
+  activerecord:
+    errors:
+      models:
+        booking: 
+          attributes:
+            date:
+              greater_than: "Нельзя бронировать на уже прошедшие даты"
+              blank: "Дата не должна быть пустой"
+            user:
+              taken: "Разрешено только одно бронирование на комнату"
+        hotel:
+          attributes:
+            location:
+              too_short: "Адрес слишком короткий"
+              blank: "Адрес не должен быть пустой"
+            name:
+              too_short: "Имя слишком короткое"
+              blank: "Имя не должно быть пустым"
+            description:
+              too_short: "Описание слишком короткое"
+              blank: "Описание не должно быть пустым"
+            image:
+              blank: "Отсутсвуют изображения"
+        room:
+          attributes:
+            cost_per_night:
+              blank: "Цена за сутки не должна быть пустой"
+              greater_than_or_equal_to: "Цена за сутки не должна быть отрицательной"
+            name:
+              too_short: "Имя слишком короткое"
+              blank: "Имя не должно быть пустым"
+            description:
+              too_short: "Описание слишком короткое"
+              blank: "Описание не должно быть пустым"
+            images:
+              blank: "Отсутсвуют изображения"
+              too_long: "Максимум 4 изображения"
+        room:
+          attributes:
+            username:
+              blank: "Имя пользователя не должно быть пустым"
+              too_short: "Имя пользователя слишком короткое"
+              taken: "Имя пользователя уже занято"
+            email:
+              blank: "Почта не должна быть пустая"
+              invalid: "Некорректная почта"
+            password:
+              blank: "Пароль не должен быть пустым"
+              too_short: "Пароль слишком короткий"
+            money:
+              blank: "Баланс не должно быть пустым"
+              too_short: "Баланс не может быть отрицательным" 
+
+
+
+
+

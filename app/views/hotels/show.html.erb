@@ -1,0 +1,49 @@
+<p style="color: green"><%= notice %></p>
+
+  <div class="row">
+    <div class="col-sm-3">
+        <%= image_tag @hotel.image, size: '100', :class => 'card-img img-thumbnail'  %>
+    </div>
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= @hotel.name %></h5>
+          <p class="card-text"><small class="text-muted"><%=@hotel.location %></small></p>
+          <p class="card-text"><%=@hotel.description %></p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <%= link_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
+  <% if @current_username == "admin" %>
+  <%= link_to "#{t(:edit_hotel)}", edit_hotel_path(@hotel), :class => 'btn btn-outline-primary' %>
+  <%= button_to "#{t(:destroy_hotel)}", @hotel, method: :delete, :class => 'btn btn-outline-primary' %>
+  <%= link_to "#{t(:add_room)}", new_room_path(hotel_id: @hotel.id), :class => 'btn btn-outline-primary' %>
+  <% end %>
+
+
+  <h1><%=t(:rooms)%>:</h1>
+  <% @hotel_rooms.each do |room|%>
+
+  <div class="card-group">
+    <div class="card">
+      <%= image_tag room.images[0], :class => 'card-img' %>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=room.name %></h5>
+        <p class="card-text"><%=room.description %></p>
+        <p class="card-text"><small><%=t(:cost_per_night)%><%=room.cost_per_night %></small></p>
+        <%= link_to "#{t(:check_room)}", room_path(room), :class => 'btn btn-outline-primary' %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
+
+
+

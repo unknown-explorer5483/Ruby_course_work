@@ -1,0 +1,10 @@
+<h1><%=t(:new_hotel_title)%></h1>
+
+
+<%= render "form", hotel: @hotel %>
+
+<br>
+
+<div>
+  <%= link_to "#{t(:back_to_hotels)}", hotels_path %>
+</div>

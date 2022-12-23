@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= render @user %>
+
+<%= form_with url: users_add_to_wallet_path do |form| %>
+<%= form.number_field :money, in: 0..1000000 %>
+<%= form.submit "#{t(:add_to_wallet)}", :class => 'btn btn-outline-primary' %>
+<% end %>
+
+<% Booking.where(user: @current_user_id).each do |booking| %>
+
+<div>
+<%= booking.room.hotel.name %>:
+<%=t(:room)%>:<%= booking.room.name %>
+<%=t(:dates)%>:<%= booking.date %>
+<%= link_to "#{t(:unbook)}", rooms_unbook_path(booking_id: booking.id), :class => 'btn btn-outline-primary' %>
+</div>
+<% end %>
+<br>
+<span><%=t(:language)%>:</span>
+<% I18n.available_locales.each do |locale| %>
+
+    <%= link_to t(locale), root_path(locale: locale), class: "btn btn-outline-dark", style: "width: 150px" %>
+
+<% end %>
+<br><br>
+
+<%= button_to "#{t(:delete_user)}", @current_user, method: :delete, :class => 'btn btn-outline-primary', id: "deleteuser" %>

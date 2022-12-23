@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%=t(:hotels)%></h1>
+
+
+
+<div id="hotels" class="container">
+    <% @hotels.each do |hotel| %>   
+
+    <div class="card-group">
+      <div class="card">
+        <%= image_tag hotel.image, :class => 'card-img' %>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%=hotel.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= hotel.id %></h6>
+          <p class="card-text"><%=hotel.description %></p>
+
+          <a href="<%= hotel_path(hotel) %>" class="btn btn-outline-primary"><%=t(:check_rooms)%></a>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+<% if @current_username == "admin" %>
+<br>
+<div class="row">
+  <div class="col-sm-3">
+<%= link_to "#{t(:new_hotel)}", new_hotel_path, :class => 'btn btn-outline-primary' %>
+<%= link_to "#{t(:new_room)}", new_room_path, :class => 'btn btn-outline-primary' %>
+</div>
+</div>
+<% end %>
+</div>

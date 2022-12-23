@@ -1,0 +1,31 @@
+<%= form_with(model: hotel) do |form| %>
+<% if @errors.any? %>
+  <% @errors.each do |msg| %>
+    <div class="alert alert-danger"><%= msg %></div>
+  <% end %>
+<% end %>
+
+  <div>
+    <%= form.label :location, "#{t(:location)}", style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :name, "#{t(:name)}", style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, "#{t(:description)}", style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :image, "#{t(:image)}", style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.submit "#{t(:submit)}" %>
+  </div>
+<% end %>

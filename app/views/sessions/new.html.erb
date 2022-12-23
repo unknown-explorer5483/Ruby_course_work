@@ -1,0 +1,20 @@
+<h1><%=t(:sign_in_title)%></h1>
+
+<%= form_tag("/sessions/create", :method => "get") do %>
+
+<% if @errors.any? %>
+<% @errors.each do |msg| %>
+  <div class="alert alert-danger"><%= msg %></div>
+<% end %>
+<% end %>
+
+<%= label_tag("#{t(:username)}:") %> <br>
+<%= text_field_tag(:username) %> <br/>
+<%= label_tag("#{t(:password)}:") %> <br>
+<%= password_field_tag(:password) %> <br/>
+<br/>
+<%= submit_tag "#{t(:log_in)}" %>
+<% end %>
+
+<%= link_to "forgot password?", password_reset_path %>
+<%= link_to "#{t(:new_user)}?", new_user_path %>

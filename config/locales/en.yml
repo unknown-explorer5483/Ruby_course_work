@@ -1,0 +1,88 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  location: "Adress"
+  name: "Name"
+  description: "Description"
+  image: "Image"
+  submit: "Send"
+  hotel_edit: "Edit hotel"
+  show_this_hotel: "Show this hotel"
+  back_to_hotels: "Back to hotel list"
+  hotels: "Hotels"
+  check_rooms: "Check rooms"
+  new_hotel: "New hotel"
+  new_room: "New room"
+  new_hotel_title: "New hotel"
+  edit_hotel: "Edit hotel"
+  destroy_hotel: "Delete hotel"
+  add_room: "New room"
+  rooms: "Rooms"
+  cost_per_night: "Cost per night"
+  check_room: "Check room"
+  current_balance: "Current balance"
+  current_user: "User"
+  log_out: "Log out"
+  log_in: "Log in"
+  register: "Register"
+  hotel_id: "hotel id"
+  images: "Images"
+  room_edit: "Edit room"
+  show_this_room: "Show this room"
+  back_to_rooms: "To room list"
+  new_room: "New room"
+  book_date: "Book date"
+  book: "Book"
+  username: "Username"
+  password: "Password"
+  new_user: "New user"
+  email: "Mail"
+  wallet: "Balance"
+  add_to_wallet: "Add to balance"
+  room: "Room"
+  unbook: "Unbook"
+  show_user: "Show user"
+  back_to_users: "Back to user list"
+  edit_user: "edit user"
+  users: "Users"
+  edit_this_hotel: "Edit this hotel"
+  destroy_this_hotel: "Delete this hotel"
+  not_enough_money: "Not enough money"
+  edit_this_room: "Edit this room"
+  destroy_this_room: "Delete this room"
+  dates: "Date"
+  delete_user: "Delete user"
+  language: "language"
+  token_expired: "Your token has expired. Please try again."
+  password_reset:
+  errors:
+    format: "%{message}"

@@ -1,0 +1,27 @@
+<%= form_with(model: user) do |form| %>
+  <% @errors = [] if @errors.nil? %>
+  <% if @errors.any? %>
+    <% @errors.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= form.label :username, "#{t(:username)}", style: "display: block" %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label :password, "#{t(:password)}", style: "display: block" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :email, "#{t(:email)}", style: "display: block" %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit "#{t(:submit)}" %>
+  </div>
+<% end %>
