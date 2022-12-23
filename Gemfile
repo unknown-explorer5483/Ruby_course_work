@@ -75,5 +75,4 @@ end
 
 gem 'rails-i18n'
 gem 'mail', '~> 2.7'
-
-
+gem "mini_magick"

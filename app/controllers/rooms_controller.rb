@@ -48,6 +48,7 @@ class RoomsController < ApplicationController
 
   # DELETE /rooms/1 or /rooms/1.json
   def destroy
+    Booking.where(room: @room).delete_all
     @room.destroy
 
     respond_to do |format|
