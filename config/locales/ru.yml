@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 ru:
+  sign_in_title: "Войти"
   location: "Адрес"
   name: "Имя"
   description: "Описание"
@@ -83,6 +84,12 @@ ru:
   delete_user: "Удалить пользователя"
   language: "Язык"
   room_taken: "Эта комната уже занята"
+  forgot_password: "Забыли пароль"
+  new_password: "Введите новый пароль"
+  reset: "Сбросить"
+  hi: "Здравствуйте"
+  request_password_reset: "Кто-то запросил сброс пароля."
+  clink_link_to_confirm: "Нажмите на ссылку выше чтобы подтвердить сброс, ссылка станет недействительной через 15 минут."
   errors:
     format: "%{message}"
   activerecord:

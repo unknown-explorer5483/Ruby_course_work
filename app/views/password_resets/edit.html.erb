@@ -9,11 +9,11 @@
             <% end %>
           <% end %>
           <p>
-            <%= f.label :password %><br />
+            <%= f.label :password, "#{t(:new_password)}" %><br />
             <%= f.password_field :password, class: 'form-control' %>
           </p>
           <p>
-            <%= f.submit "reset", class: "btn btn-primary" %>
+            <%= f.submit "#{t(:reset)}", class: "btn btn-primary" %>
           </p>
         <% end %>
       </div>

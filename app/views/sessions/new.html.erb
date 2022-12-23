@@ -13,8 +13,8 @@
 <%= label_tag("#{t(:password)}:") %> <br>
 <%= password_field_tag(:password) %> <br/>
 <br/>
-<%= submit_tag "#{t(:log_in)}" %>
+<%= submit_tag "#{t(:log_in)}", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "forgot password?", password_reset_path %>
+<%= link_to "#{t(:forgot_password)}?", password_reset_path %>
 <%= link_to "#{t(:new_user)}?", new_user_path %>

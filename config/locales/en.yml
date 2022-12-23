@@ -84,6 +84,11 @@ en:
   language: "language"
   token_expired: "Your token has expired. Please try again."
   room_taken: "has already been taken"
-  password_reset:
+  forgot_password: "Forgot password"
+  new_password: "Enter new password"
+  reset: "Reset"
+  hi: "Hi"
+  request_password_reset: "Someone requested a password reset."
+  clink_link_to_confirm: "Click the link above if you recognise the activity, link expires in 15 minutes."
   errors:
     format: "%{attribute} %{message}"

@@ -4,11 +4,11 @@
       <div class="col-md-6 col-md-offset-3">
         <%= form_with url: password_reset_path do |f| %>
           <p>
-            <%= f.label "fhdg" %><br />
+            <%= f.label "#{t(:email)}" %><br />
             <%= f.text_field :email, class: 'form-control' %>
           </p>
           <p>
-            <%= f.submit "hgfhf", class: "btn btn-primary" %>
+            <%= f.submit "#{t(:submit)}", class: "btn btn-primary" %>
           </p>
         <% end %>
       </div>
