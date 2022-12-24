@@ -21,11 +21,11 @@
     <%= form.submit "#{t(:book)}", :class => 'btn btn-outline-primary' %>
     <% end %>
     <br>
-    <%= button_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
+    <%= button_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary col-2 mb-1' %>
     <% if @current_username == "admin" %>
-      <%= button_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary' %>
+      <%= button_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary col-2 mb-1' %>
 
-      <%= button_to "#{t(:destroy_this_room)}", @room, method: :delete, :class => 'btn btn-outline-primary' %>
+      <%= button_to "#{t(:destroy_this_room)}", @room, method: :delete, :class => 'btn btn-outline-primary col-2 mb-1' %>
     <% end %>
   </div>
 </div>
@@ -45,9 +45,5 @@
    
 <% end %>
 </div>
-
-
-
-
 
 
