@@ -19,8 +19,8 @@ describe 'Bookroomdublicate' do
     @driver.find_element(:name, 'commit').click
     @driver.find_element(:link_text, 'Check rooms').click
     @driver.find_element(:link_text, 'Check room').click
-    @driver.find_element(:id, 'date').click
-    @driver.find_element(:id, 'date').send_keys('2023-04-28')
+    @driver.find_element(:id, 'datefield').click
+    @driver.find_element(:id, 'datefield').send_keys('2023-04-28')
     @driver.find_element(:name, 'commit').click
     @driver.find_element(:link_text, 'Log out').click
     @driver.find_element(:link_text, 'Log in').click
@@ -31,8 +31,8 @@ describe 'Bookroomdublicate' do
     @driver.find_element(:name, 'commit').click
     @driver.find_element(:link_text, 'Check rooms').click
     @driver.find_element(:link_text, 'Check room').click
-    @driver.find_element(:id, 'date').click
-    @driver.find_element(:id, 'date').send_keys('2023-04-28')
+    @driver.find_element(:id, 'datefield').click
+    @driver.find_element(:id, 'datefield').send_keys('2023-04-28')
     @driver.find_element(:name, 'commit').click
     expect(@driver.find_element(:css, '.alert').text).to eq('This room has already been taken')
     @driver.find_element(:link_text, 'Log out').click

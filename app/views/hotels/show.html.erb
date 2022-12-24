@@ -15,10 +15,10 @@
   </div>
   </div>
 
-
-  <%= link_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
+  
+  <br><%= button_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
   <% if @current_username == "admin" %>
-  <%= link_to "#{t(:edit_hotel)}", edit_hotel_path(@hotel), :class => 'btn btn-outline-primary' %>
+  <%= button_to "#{t(:edit_hotel)}", edit_hotel_path(@hotel), :class => 'btn btn-outline-primary' %>
   <%= button_to "#{t(:destroy_hotel)}", @hotel, method: :delete, :class => 'btn btn-outline-primary' %>
   <%= link_to "#{t(:add_room)}", new_room_path(hotel_id: @hotel.id), :class => 'btn btn-outline-primary' %>
   <% end %>

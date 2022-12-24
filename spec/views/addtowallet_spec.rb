@@ -16,8 +16,7 @@ describe 'Addtowallet' do
     @driver.find_element(:id, 'username').send_keys('test2user')
     @driver.find_element(:id, 'password').click
     @driver.find_element(:id, 'password').send_keys('passwordtestuser')
-    @driver.find_element(:id, 'password').send_keys(:enter)
-    @driver.find_element(:name, 'commit').click
+    @driver.find_element(:xpath, '//input[@name=\'commit\']').click
     @driver.find_element(:link_text, 'User: test2user').click
     prev_balance = @driver.find_element(:css, 'p:nth-child(4)').text[9..15].to_f+555
     @driver.find_element(:id, 'money').click

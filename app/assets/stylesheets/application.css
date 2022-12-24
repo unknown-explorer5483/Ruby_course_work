@@ -68,7 +68,23 @@
   color: white !important
 }
 
+.active:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+.month {
+  padding: 15px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 

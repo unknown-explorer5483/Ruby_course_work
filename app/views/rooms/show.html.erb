@@ -5,7 +5,10 @@
     <h5 class="card-title"><%= @room.name.to_s+@room.id.to_s %></h5>
     <p class="card-text"><%= @room.description %></p>
     <p class="card-text"><small><%=t(:cost_per_night)%>:<%=@room.cost_per_night %></small></p>
-    <div style="width: 30rem;" id="calendar" data=""></div>
+    <div id="calendar" data="<%= @calendar_data %>" class="row">
+
+    </div>
+    <br>
     <%= form_with url: rooms_book_path do |form| %>
     <% if @errors.any? %>
     <% @errors.each do |msg| %>
@@ -14,13 +17,13 @@
     <% end %>
     <%= form.hidden_field :room_id, value: @room.id %>
     <%= form.label "#{t(:book_date)}:" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, :id => 'datefield' %>
     <%= form.submit "#{t(:book)}", :class => 'btn btn-outline-primary' %>
     <% end %>
     <br>
-    <%= link_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
+    <%= button_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary' %>
     <% if @current_username == "admin" %>
-      <%= link_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary' %>
+      <%= button_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary' %>
 
       <%= button_to "#{t(:destroy_this_room)}", @room, method: :delete, :class => 'btn btn-outline-primary' %>
     <% end %>

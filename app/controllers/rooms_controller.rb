@@ -11,15 +11,42 @@ class RoomsController < ApplicationController
   end
 
   # GET /rooms/1 or /rooms/1.json
-  def show; end
+  def show
+    allowed_dates_current_month = get_not_booked_dates_in_month(@room, Date.today)
+    allowed_dates_next_month = get_not_booked_dates_in_month(@room, Date.today.next_month)
+    @calendar_data = JSON.generate(generate_date_json(allowed_dates_current_month, allowed_dates_next_month))
+  end
 
-  # GET /rooms/new
+  def get_not_booked_dates_in_month(room, date)
+    start_date = Date.today == date ? Date.today + 1.day : date.beginning_of_month
+    all_dates_current_month = start_date..date.end_of_month
+    booked_dates_current_month = Booking.where(room:).map(&:date)
+    all_dates_current_month.reject { |date_elem| booked_dates_current_month.include? date_elem }
+  end
+
+  def generate_date_json(allowed_dates_current_month, allowed_dates_next_month)
+    { currentMonth: current_month(allowed_dates_current_month), nextMonth: next_month(allowed_dates_next_month) }
+  end
+
+  def current_month(allowed_dates_current_month)
+    {
+      name: Date::ABBR_MONTHNAMES[Date.today.month], dayCount: Date.today.end_of_month.day,
+      firstDayInMonth: Date.today.beginning_of_month.cwday, allowedDates: allowed_dates_current_month
+    }
+  end
+
+  def next_month(allowed_dates_next_month)
+    {
+      name: Date::ABBR_MONTHNAMES[Date.today.next_month.month], dayCount: Date.today.next_month.end_of_month.day,
+      firstDayInMonth: Date.today.next_month.beginning_of_month.cwday, allowedDates: allowed_dates_next_month
+    }
+  end
+
   def new
     @room = Room.new
     @hotel_id = params[:hotel_id]
   end
 
-  # GET /rooms/1/edit
   def edit; end
 
   # POST /rooms or /rooms.json
@@ -89,12 +116,10 @@ class RoomsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_room
     @room = Room.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def room_params
     params.require(:room).permit(:hotel, :description, :name, :cost, :hotel_id, :cost_per_night, images: [])
   end
