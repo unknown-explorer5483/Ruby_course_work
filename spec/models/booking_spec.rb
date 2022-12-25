@@ -90,11 +90,13 @@ RSpec.describe Booking, type: :model do
 
                 prew_booking&.destroy
                 new_booking = Booking.create(
+                    room: new_room, 
+                    user: new_user,
                     date: Time.now - 1.day,
                 )
 
                 expect(new_booking.valid?).to eq(false)
-                expect(new_booking.errors.full_messages.length).to eq(3)
+                expect(new_booking.errors.full_messages.length).to eq(1)
 
             end
             it "should not write dublicate bookings" do
@@ -117,6 +119,19 @@ RSpec.describe Booking, type: :model do
 
                 expect(new_booking2.valid?).to eq(false)
                 expect(Booking.find_by(user: new_user, room: new_room)).to eq(new_booking)
+            end
+            it "should not write to db empty record" do
+
+                prew_booking = Booking.find_by(user: new_user)
+
+                prew_booking&.destroy
+                new_booking = Booking.create(
+
+                )
+
+                expect(new_booking.valid?).to eq(false)
+                expect(new_booking.errors.full_messages).to eq(["Room must exist", "User must exist", "Date can't be blank"])
+
             end
         end
 

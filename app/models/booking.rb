@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   belongs_to :room
   belongs_to :user
 
-  validates :date, comparison: { greater_than: Time.now }, presence: true
+  validates :date, comparison: { greater_than: Time.now }
   before_validation :unique_test
 
 

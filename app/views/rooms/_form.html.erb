@@ -27,16 +27,16 @@
 
   <div>
     <%= form.label :images,"#{t(:images)}:", style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, :class => 'form-control' %>
   </div>
 
   <div>
-    <%= form.label :cost_per_night,"#{t(:cost_per_night)}:", style: "display: block" %>
-    <%= form.text_field :cost_per_night %>
+    <%= form.label :cost_per_night,"#{t(:cost_per_night)}", style: "display: block" %>
+    <%= form.text_field :cost_per_night, :class => 'mb-2' %>
   </div>
 
  
   <div>
-    <%= form.submit "#{t(:submit)}:" %>
+    <%= form.submit "#{t(:submit)}", :class => 'btn btn-outline-primary' %>
   </div>
 <% end %>

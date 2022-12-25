@@ -90,6 +90,15 @@ RSpec.describe Room, type: :model do
                 expect(new_room.valid?).to eq(false)
                 expect(new_room.errors.full_messages.length).to eq(1)
             end
+            it "should not write to db empty record" do
+                prew_room = Room.find_by(name: "testroom")
+                prew_room&.destroy
+
+                new_room = Room.create(
+                )
+                expect(new_room.valid?).to eq(false)
+                expect(new_room.errors.full_messages.length).to eq(8)
+            end
         end
     end
 end

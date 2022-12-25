@@ -22,10 +22,10 @@
 
   <div>
     <%= form.label :image, "#{t(:image)}", style: "display: block" %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, :class => 'form-control mb-2' %>
   </div>
 
   <div>
-    <%= form.submit "#{t(:submit)}" %>
+    <%= form.submit "#{t(:submit)}", :class => 'btn btn-outline-primary' %>
   </div>
 <% end %>

@@ -18,10 +18,10 @@
 
   <div>
     <%= form.label :email, "#{t(:email)}", style: "display: block" %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, :class => 'mb-2' %>
   </div>
 
   <div>
-    <%= form.submit "#{t(:submit)}" %>
+    <%= form.submit "#{t(:submit)}", :class => 'btn btn-outline-primary' %>
   </div>
 <% end %>

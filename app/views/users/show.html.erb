@@ -7,10 +7,10 @@
 <%= form.number_field :money, in: 0..1000000 %>
 <%= form.submit "#{t(:add_to_wallet)}", :class => 'btn btn-outline-primary' %>
 <% end %>
-<br>
+
 
 <% unless Booking.where(user: @current_user_id).empty? %>
-
+<br>
 <table class="table table-sm table-hover">
     <thead>
       <tr>
@@ -35,14 +35,17 @@
         <% end %>
     </tbody>
   </table>
+
 <% end %>
 <br>
 <span><%=t(:language)%>:</span>
+<div>
 <% I18n.available_locales.each do |locale| %>
 
-    <%= link_to t(locale), user_path(@current_user,locale: locale), class: "btn btn-outline-dark", style: "width: 150px" %>
+    <%= link_to t(locale), user_path(@current_user,locale: locale), class: "btn btn-outline-primary", style: "width: 150px" %>
 
 <% end %>
-<br><br>
+</div>
+<br>
 
 <%= button_to "#{t(:delete_user)}", @current_user, method: :delete, :class => 'btn btn-danger', id: "deleteuser" %>

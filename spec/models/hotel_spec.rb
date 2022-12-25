@@ -42,6 +42,15 @@ RSpec.describe Hotel, type: :model do
                 expect(new_hotel.valid?).to eq(false)
                 expect(new_hotel.errors.full_messages.length).to eq(4)
             end
+            it "should not write to db empty data" do
+                prew_hotel = Hotel.find_by(name: "test")
+                prew_hotel&.destroy
+
+                new_hotel = Hotel.create(
+                )
+                expect(new_hotel.valid?).to eq(false)
+                expect(new_hotel.errors.full_messages.length).to eq(7)
+            end
         end
     end
 end
