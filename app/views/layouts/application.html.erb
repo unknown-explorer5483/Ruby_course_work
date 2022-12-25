@@ -19,7 +19,9 @@
         <div class="container-fluid">
           <div class="navbar-header text-left">
             <%= link_to "#{t(:hotels)}", root_path, :class => 'navbar-brand' %>
-
+            <% if @is_admin %>
+            <%= link_to "#{t(:rooms)}_admin", rooms_path, :class => 'navbar-brand fs-6 text-danger' %>
+            <% end %>
           </div>
           <ul class="nav col-12 col-md-auto mb-2 mb-md-0">
           

@@ -87,10 +87,12 @@ class RoomsController < ApplicationController
   def unbook
     booking_id = book_params[:booking_id]
     booking = Booking.find(booking_id)
-    @current_user.update(money: (@current_user.money + booking.room.cost_per_night))
-    @current_user.save
-    booking.destroy
-    redirect_to user_path(@current_user)
+     if (booking.user == @current_user) || (@is_admin)
+      booking.user.update(money: (@current_user.money + booking.room.cost_per_night))
+      booking.user.save
+      booking.destroy
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private
