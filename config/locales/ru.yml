@@ -48,7 +48,7 @@ ru:
   destroy_hotel: "Удалить отель"
   add_room: "Добавить комнату"
   rooms: "Комнаты"
-  cost_per_night: "Цена за сутки"
+  cost_per_night: "Цена за сутки: "
   check_room: "Посмотреть комнату"
   current_balance: "Текущий баланс"
   current_user: "Пользователь"
@@ -82,7 +82,7 @@ ru:
   destroy_this_room: "Удалить эту комнату"
   dates: "Дата"
   delete_user: "Удалить пользователя"
-  language: "Язык"
+  language: "Выберите язык"
   room_taken: "Эта комната уже занята"
   forgot_password: "Забыли пароль"
   new_password: "Введите новый пароль"
@@ -90,6 +90,7 @@ ru:
   hi: "Здравствуйте"
   request_password_reset: "Кто-то запросил сброс пароля."
   clink_link_to_confirm: "Нажмите на ссылку выше чтобы подтвердить сброс, ссылка станет недействительной через 15 минут."
+  delete: "Удалить"
   errors:
     format: "%{message}"
   activerecord:

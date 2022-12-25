@@ -13,26 +13,28 @@ describe 'Locale' do
     @driver.get('http://localhost:3000/')
     @driver.find_element(:link_text, 'Log in').click
     @driver.find_element(:id, 'username').click
-    @driver.find_element(:id, 'username').send_keys(:down)
-    @driver.find_element(:id, 'username').send_keys(:down)
     @driver.find_element(:id, 'username').send_keys('test2user')
     @driver.find_element(:id, 'password').click
     @driver.find_element(:id, 'password').send_keys('passwordtestuser')
     @driver.find_element(:name, 'commit').click
     @driver.find_element(:link_text, 'User: test2user').click
-    @driver.find_element(:css, '.btn:nth-child(7) > .translation_missing').click
+    @driver.find_element(:link_text, 'Ru').click
+    expect(@driver.find_element(:link_text, 'Пользователь: test2user').text).to eq('Пользователь: test2user')
+    expect(@driver.find_element(:link_text, 'Отели').text).to eq('Отели')
+    @driver.find_element(:link_text, 'Отели').click
+    expect(@driver.find_element(:css, 'h1').text).to eq('Отели')
     @driver.find_element(:link_text, 'Посмотреть комнаты').click
     expect(@driver.find_element(:css, 'h1').text).to eq('Комнаты:')
     @driver.find_element(:link_text, 'Посмотреть комнату').click
     expect(@driver.find_element(:css, 'label').text).to eq('Дата бронирования:')
-    expect(@driver.find_element(:link_text, 'Выйти').text).to eq('Выйти')
     @driver.find_element(:link_text, 'Пользователь: test2user').click
     @driver.find_element(:link_text, 'En').click
+    expect(@driver.find_element(:link_text, 'Hotels').text).to eq('Hotels')
+    @driver.find_element(:link_text, 'Hotels').click
     expect(@driver.find_element(:css, 'h1').text).to eq('Hotels')
     @driver.find_element(:link_text, 'Check rooms').click
     expect(@driver.find_element(:css, 'h1').text).to eq('Rooms:')
     @driver.find_element(:link_text, 'Check room').click
-    @driver.find_element(:css, 'form').click
     expect(@driver.find_element(:css, 'label').text).to eq('Book date:')
     @driver.find_element(:link_text, 'Log out').click
   end

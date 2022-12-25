@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
       @current_username = @current_user.username
       @current_user_id = @current_user.id
       @current_user_money = @current_user.money
+      @is_admin = @current_user.isadmin
     end
     @current_user
   end
@@ -50,7 +51,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_as_admin
-    return if @current_username == 'admin'
+    return if @is_admin
 
     redirect_to sessions_new_path(errors: ['access denied'])
   end

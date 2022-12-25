@@ -1,13 +1,4 @@
 
-class UniqueBooking < ActiveModel::Validator
-
-  def validate(record)
-    if Booking.where(room: record.room, date: record.date).length == 2
-      record.errors.add :this_room, "#{I18n.t(:room_taken)}"
-    end
-  end
-end
-
 class Booking < ApplicationRecord
   include ActiveModel::Validations
 

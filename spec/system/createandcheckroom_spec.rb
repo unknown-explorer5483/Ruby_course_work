@@ -29,7 +29,7 @@ describe 'Createandcheckroom' do
     @driver.find_element(:css, 'html').click
     @driver.find_element(:name, 'commit').click
     expect(@driver.find_element(:css, '.card-text:nth-child(2)').text).to eq('description for room1 and its features')
-    expect(@driver.find_element(:css, 'small').text).to eq('Cost per night:300.0')
+    expect(@driver.find_element(:css, 'small').text).to eq('Cost per night: 300.0')
     @driver.find_element(:css, '.btn:nth-child(2)').click
     @driver.find_element(:link_text, 'Log out').click
   end

@@ -7,6 +7,15 @@ describe 'Bookroomdublicate' do
     @vars = {}
   end
   after(:each) do
+    @driver.find_element(:link_text, 'Log in').click
+    @driver.find_element(:id, 'username').click
+    @driver.find_element(:id, 'username').send_keys('admin')
+    @driver.find_element(:id, 'password').click
+    @driver.find_element(:id, 'password').send_keys('12345678')
+    @driver.find_element(:name, 'commit').click
+    @driver.find_element(:link_text, 'User: admin').click
+    @driver.find_element(:link_text, '❌').click
+    @driver.find_element(:link_text, 'Log out').click
     @driver.quit
   end
   it 'bookroomdublicate' do
@@ -35,15 +44,6 @@ describe 'Bookroomdublicate' do
     @driver.find_element(:id, 'datefield').send_keys('2023-04-28')
     @driver.find_element(:name, 'commit').click
     expect(@driver.find_element(:css, '.alert').text).to eq('This room has already been taken')
-    @driver.find_element(:link_text, 'Log out').click
-    @driver.find_element(:link_text, 'Log in').click
-    @driver.find_element(:id, 'username').click
-    @driver.find_element(:id, 'username').send_keys('admin')
-    @driver.find_element(:id, 'password').click
-    @driver.find_element(:id, 'password').send_keys('12345678')
-    @driver.find_element(:name, 'commit').click
-    @driver.find_element(:link_text, 'User: admin').click
-    @driver.find_element(:link_text, 'Unbook').click
     @driver.find_element(:link_text, 'Log out').click
   end
 end

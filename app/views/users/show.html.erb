@@ -7,23 +7,42 @@
 <%= form.number_field :money, in: 0..1000000 %>
 <%= form.submit "#{t(:add_to_wallet)}", :class => 'btn btn-outline-primary' %>
 <% end %>
+<br>
 
-<% Booking.where(user: @current_user_id).each do |booking| %>
+<% unless Booking.where(user: @current_user_id).empty? %>
 
-<div>
-<%= booking.room.hotel.name %>:
-<%=t(:room)%>:<%= booking.room.name %>
-<%=t(:dates)%>:<%= booking.date %>
-<%= link_to "#{t(:unbook)}", rooms_unbook_path(booking_id: booking.id), :class => 'btn btn-outline-primary' %>
-</div>
+<table class="table table-sm table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"><%=t(:hotel)%></th>
+        <th scope="col"><%=t(:room)%></th>
+        <th scope="col"><%=t(:dates)%></th>
+        <th scope="col"><%=t(:delete)%></th>
+        <th scope="col"><%=t(:check_room)%></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% Booking.where(user: @current_user_id).each_with_index do |booking,index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= booking.room.hotel.name %></td>
+        <td><%= booking.room.name %></td>
+        <td><%= booking.date %></td>
+        <td><%= link_to "❌", rooms_unbook_path(booking_id: booking.id), :class => 'btn' %></td>
+        <td><%= link_to "➡", room_path(booking.room), :class => 'btn' %></td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
 <% end %>
 <br>
 <span><%=t(:language)%>:</span>
 <% I18n.available_locales.each do |locale| %>
 
-    <%= link_to t(locale), root_path(locale: locale), class: "btn btn-outline-dark", style: "width: 150px" %>
+    <%= link_to t(locale), user_path(@current_user,locale: locale), class: "btn btn-outline-dark", style: "width: 150px" %>
 
 <% end %>
 <br><br>
 
-<%= button_to "#{t(:delete_user)}", @current_user, method: :delete, :class => 'btn btn-outline-primary', id: "deleteuser" %>
+<%= button_to "#{t(:delete_user)}", @current_user, method: :delete, :class => 'btn btn-danger', id: "deleteuser" %>
