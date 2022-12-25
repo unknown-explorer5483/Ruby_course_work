@@ -6,7 +6,7 @@
   </div>
   <% if @is_admin %>
   <div class="col-md-auto px-1">
-    <%= button_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary mb-1' %>
+    <%= link_to "#{t(:edit_this_room)}", edit_room_path(@room), :class => 'btn btn-outline-primary mb-1' %>
   </div>
   <div class="col-md-auto px-1">
     <%= button_to "#{t(:destroy_this_room)}", @room, method: :delete, :class => 'btn btn-outline-primary mb-1' %>
@@ -16,7 +16,7 @@
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= @room.name.to_s+@room.id.to_s %></h5>
+    <h5 class="card-title"><%= @room.name %></h5>
     <p class="card-text"><%= @room.description %></p>
     <p class="card-text"><small><%=t(:cost_per_night)%><%=@room.cost_per_night %></small></p>
     <div id="calendar" data="<%= @calendar_data %>" class="row">

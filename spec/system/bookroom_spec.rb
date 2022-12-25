@@ -22,7 +22,7 @@ describe 'Bookroom' do
     @driver.find_element(:css, 'li:nth-child(28) > .active').click
     @driver.find_element(:name, 'commit').click
     expect(@driver.find_element(:css, 'td:nth-child(4)').text).to eq('2023-01-20')
-    expect(@driver.find_element(:css, 'td:nth-child(3)').text).to eq('newroom800')
+    expect(@driver.find_element(:css, 'td:nth-child(3)').text).to eq('newroom')
     expect(@driver.find_element(:css, 'td:nth-child(2)').text).to eq('hotel1')
     @driver.find_element(:link_text, '❌').click
     @driver.find_element(:link_text, 'Log out').click

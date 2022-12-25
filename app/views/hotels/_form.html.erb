@@ -25,7 +25,12 @@
     <%= form.file_field :image, :class => 'form-control mb-2' %>
   </div>
 
-  <div>
-    <%= form.submit "#{t(:submit)}", :class => 'btn btn-outline-primary' %>
+  <div class="row mb-2">
+    <div class="col-md-auto pe-1">
+      <%= form.submit "#{t(:submit)}", :class => 'btn btn-outline-primary' %>
+    </div>
+    <div class="col-md-auto px-1">
+      <%= link_to "#{t(:back_to_hotels)}", hotels_path, :class => 'btn btn-outline-primary mb-1' %>
+    </div>
   </div>
 <% end %>
