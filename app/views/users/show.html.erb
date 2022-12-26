@@ -38,14 +38,6 @@
 
 <% end %>
 <br>
-<span><%=t(:language)%>:</span>
-<div>
-<% I18n.available_locales.each do |locale| %>
 
-    <%= link_to t(locale), user_path(@current_user,locale: locale), class: "btn btn-outline-primary", style: "width: 150px" %>
-
-<% end %>
-</div>
-<br>
 
 <%= button_to "#{t(:delete_user)}", @current_user, method: :delete, :class => 'btn btn-danger', id: "deleteuser" %>

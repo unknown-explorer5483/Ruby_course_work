@@ -1,20 +1,21 @@
 <div class="container">
-  <br>
-<% if notice %>
-<div class="alert alert-success"><%= notice %></div>
-<% end %>
 
-<% if @is_admin %>
-<br>
-<div class="row">
-  <div class="col-md-auto pe-1">
-    <%= link_to "#{t(:new_hotel)}", new_hotel_path, :class => 'btn btn-outline-primary' %>
-  </div>
-  <div class="col-md-auto px-1">
-    <%= link_to "#{t(:new_room)}", new_room_path, :class => 'btn btn-outline-primary' %>
-  </div>
-</div>
-<% end %>
+  <% if notice %>
+    <br>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <% if @is_admin %>
+    <br>
+    <div class="row">
+      <div class="col-md-auto pe-1">
+        <%= link_to "#{t(:new_hotel)}", new_hotel_path, :class => 'btn btn-outline-primary' %>
+      </div>
+      <div class="col-md-auto px-1">
+        <%= link_to "#{t(:new_room)}", new_room_path, :class => 'btn btn-outline-primary' %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div id="hotels" class="container">

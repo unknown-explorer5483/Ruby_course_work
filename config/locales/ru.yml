@@ -91,6 +91,7 @@ ru:
   request_password_reset: "Кто-то запросил сброс пароля."
   clink_link_to_confirm: "Нажмите на ссылку выше чтобы подтвердить сброс, ссылка станет недействительной через 15 минут."
   delete: "Удалить"
+  bookings: "Все бронирования"
   errors:
     format: "%{message}"
   activerecord:

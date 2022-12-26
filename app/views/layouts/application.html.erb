@@ -20,19 +20,24 @@
           <div class="navbar-header text-left">
             <%= link_to "#{t(:hotels)}", root_path, :class => 'navbar-brand' %>
             <% if @is_admin %>
-            <%= link_to "#{t(:rooms)}_admin", rooms_path, :class => 'navbar-brand fs-6 text-danger' %>
+            <%= link_to "#{t(:bookings)}", rooms_path, :class => 'navbar-brand fs-6 text-danger' %>
             <% end %>
           </div>
           <ul class="nav col-12 col-md-auto mb-2 mb-md-0">
           
 
             <% if @current_user %>
-            <li class="nav-item"><%= link_to "#{t(:current_balance)}: "+@current_user_money.to_s, user_path(@current_user), :class => 'nav-link'  %></li>
-            <li class="nav-item"><%= link_to "#{t(:current_user)}: "+@current_user.username, user_path(@current_user), :class => 'nav-link'%></li>
-            <li class="nav-item"><%= link_to "#{t(:log_out)}", sessions_destroy_path, :class => 'nav-link'%></li>
+            <li class="nav-item"><%= link_to "#{t(:current_balance)}: "+@current_user_money.to_s, user_path(@current_user), :class => 'nav-link me-1'  %></li>
+            <li class="nav-item"><%= link_to "#{t(:current_user)}: "+@current_user.username, user_path(@current_user), :class => 'btn btn-outline-primary me-1'%></li>
+            <li class="nav-item"><%= link_to "#{t(:log_out)}", sessions_destroy_path, :class => 'btn btn-outline-primary me-1'%></li>
             <% else %>
-            <li class="nav-item"><%= link_to "#{t(:log_in)}", sessions_new_path, :class => 'nav-link'%></li>
-            <li class="nav-item"><%= link_to "#{t(:register)}", users_new_path, :class => 'nav-link'%></li>
+            <li class="nav-item"><%= link_to "#{t(:log_in)}", sessions_new_path, :class => 'btn btn-outline-primary me-1'%></li>
+            <li class="nav-item"><%= link_to "#{t(:register)}", users_new_path, :class => 'btn btn-outline-primary me-1'%></li>
+            <% end %>
+            <% I18n.available_locales.each do |locale| %>
+              <% if locale != I18n.locale %>
+              <li class="nav-item "><%= link_to t(locale), "/#{locale}/#{request.env['PATH_INFO'][4..-1]}", class: "btn btn-outline-primary" %></li>
+              <% end %>
             <% end %>
 
           </ul>

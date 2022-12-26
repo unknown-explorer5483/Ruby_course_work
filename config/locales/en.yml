@@ -88,6 +88,7 @@ en:
   new_password: "Enter new password"
   reset: "Reset"
   delete: "Delete"
+  bookings: "All bookings"
   hi: "Hi"
   request_password_reset: "Someone requested a password reset."
   clink_link_to_confirm: "Click the link above if you recognise the activity, link expires in 15 minutes."
