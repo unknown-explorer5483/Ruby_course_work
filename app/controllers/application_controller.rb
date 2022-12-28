@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
 
   def current_user
-    p '/////////////////////////////////'
     @current_user = User.find_by_id(session[:current_user_id])
     if @current_user
       @current_username = @current_user.username

@@ -87,7 +87,7 @@ class RoomsController < ApplicationController
   def unbook
     booking_id = book_params[:booking_id]
     booking = Booking.find(booking_id)
-     if (booking.user == @current_user) || (@is_admin)
+    if (booking.user == @current_user) || @is_admin
       booking.user.update(money: (@current_user.money + booking.room.cost_per_night))
       booking.user.save
       booking.destroy
